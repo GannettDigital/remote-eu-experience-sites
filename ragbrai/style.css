@@ -62,7 +62,7 @@ html {
 }
 
 .screen {
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .4);
 }
 
 .text {
@@ -105,6 +105,53 @@ p {
     line-height: 27px;
 }
 
+footer {
+    background-color: #bbbbbb;
+    color: #323232;
+    font-size: 80%;
+    line-height: 35px;
+    padding: 30px 20px;
+    text-align: center;
+}
+
+.usat {
+    margin: 0 auto;
+    max-width: 350px;
+    padding-bottom: 10px;
+    width: 80%;
+}
+
+.footer-list {
+    font-size: 100%;
+    line-height: 25px;
+    list-style-position: inside;
+    list-style-type: none;
+    margin: -20px 0 0 0;
+    padding: 0;
+    text-align: center;
+}
+
+.footer-item {
+    display: inline;
+}
+
+.footer-item a {
+    color: #323232;
+}
+
+.footer-item:after {
+    content: " \FF65 ";
+}
+
+.footer-item:last-child:after {
+    content: "";
+}
+
+.copyright {
+    padding: 15px 0 0 0;
+    text-align: center;
+}
+
 @media only screen and (min-width: 600px) {
     .wrapper {
         background: url(images/ragbrai-med-1000.jpg) no-repeat;
@@ -125,6 +172,9 @@ p {
     }
     .intro {
         font-size: 17px;
+    }
+    .usat {
+        padding: 0;
     }
 }
 
