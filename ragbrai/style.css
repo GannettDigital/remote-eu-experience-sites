@@ -52,17 +52,17 @@ html {
 
 .wrapper {
     /* Center and scale the image nicely */
-    background: url(images/ragbrai-small-600.jpg) no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    /* Full height */
+    background-color: #009bff;
     height: 100%;
     overflow: auto;
     position: relative;
 }
 
-.screen {
-    background-color: rgba(0, 0, 0, .4);
+.events {
+    display: block;
+    max-width: 340px;
+    padding: 10px 0;
+    width: 65%;
 }
 
 .text {
@@ -153,13 +153,6 @@ footer {
 }
 
 @media only screen and (min-width: 600px) {
-    .wrapper {
-        background: url(images/ragbrai-med-1000.jpg) no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        height: 100%;
-        overflow: auto;
-    }
     .text {
         max-width: 65%;
     }
@@ -179,13 +172,6 @@ footer {
 }
 
 @media only screen and (min-width: 1000px) {
-    .wrapper {
-        background: url(images/ragbrai-large-1500.jpg) no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        height: 100%;
-        overflow: auto;
-    }
     .text {
         max-width: 600px;
     }
@@ -202,13 +188,6 @@ footer {
 }
 
 @media only screen and (min-width: 1500px) {
-    .wrapper {
-        background: url(images/ragbrai-xlarge-2200.jpg) no-repeat;
-        background-attachment: fixed;
-        background-size: cover;
-        height: 100%;
-        overflow: auto;
-    }
     .text {
         max-width: 800px;
     }
