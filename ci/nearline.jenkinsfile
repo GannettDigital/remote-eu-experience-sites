@@ -1,0 +1,29 @@
+#!groovy
+node('node') {
+  stage('Git Checkout') {
+      checkout scm
+      sh 'git config user.name "LDSNJenkins"'
+      sh 'git config user.email "rcopley@gannett.com"'
+  }
+
+  stage('Dependencies') {
+      sh 'npm install'
+  }
+  stage ('Execute Docker CI') {
+    withCredentials([
+      usernamePassword(credentialsId: "ldsn-jenkins-github-token", passwordVariable: "TOKEN", usernameVariable: ''),
+      string(credentialsId: "GCS_PRIVATE_KEY", variable: "PRIVATE_KEYS"),
+    ]) {
+      def BRANCH = "master"
+      def BUCKET_NAME = "consumer-marketing-events-eu-message"
+      def OPTIONS = '-c -d -r -x \\.git|.*README\\.md$|Jenkinsfile|^ci/|.*\\.DS_Store$|owners\\.txt|package\\.json'
+      def REPO = "remote-eu-experience-sites"
+      print 'Running docker run'
+      sh "docker run --rm -e TOKEN=${TOKEN} -e PRIVATE_KEYS='${PRIVATE_KEYS}' -e BRANCH=${BRANCH} -e REPO=${REPO} -e OPTIONS='${OPTIONS}' -e BUCKET_NAME=${BUCKET_NAME} ldsn-docker-artifactory.gannettdigital.com/sync-buckets:latest"
+    }
+  }
+  stage('Cachey Busty') {
+    def changedFiles = sh(returnStdout: true, script: "git diff --name-only HEAD^1 origin/master .").trim().replaceAll("[\\t\\n\\r]"," ")
+    sh "node node_modules/cachey-busty/index.js busty ${changedFiles}"
+  }
+}
