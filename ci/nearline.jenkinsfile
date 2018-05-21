@@ -22,8 +22,4 @@ node('node') {
       sh "docker run --rm -e TOKEN=${TOKEN} -e PRIVATE_KEYS='${PRIVATE_KEYS}' -e BRANCH=${BRANCH} -e REPO=${REPO} -e OPTIONS='${OPTIONS}' -e BUCKET_NAME=${BUCKET_NAME} ldsn-docker-artifactory.gannettdigital.com/sync-buckets:latest"
     }
   }
-  stage('Cachey Busty') {
-    def changedFiles = sh(returnStdout: true, script: "git diff --name-only HEAD^1 origin/master .").trim().replaceAll("[\\t\\n\\r]"," ")
-    sh "node node_modules/cachey-busty/index.js busty ${changedFiles}"
-  }
 }
