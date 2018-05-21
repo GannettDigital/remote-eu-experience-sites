@@ -1,0 +1,14 @@
+{
+  "name": "ldsn_cdn",
+  "version": "1.0.0",
+  "description": "polices the CDN",
+  "main": "",
+  "author": "Ryan Copley <rcopley@gannett.com",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "owner-police": "^1.0.10",
+    "cachey-busty": "^1.0.2"
+  }
+}
